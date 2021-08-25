@@ -6,7 +6,7 @@ CREATE TABLE FileHistory(
     user_name varchar NOT NULL,
     file_name varchar NOT NULL,
     time integer NOT NULL,
-    size integer DEFAULT 0,
+    size integer NOT NULL,
     action integer NOT NULL
 );
 -- +goose StatementEnd

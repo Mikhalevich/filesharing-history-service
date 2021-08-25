@@ -1,10 +1,10 @@
 package db
 
 type Event struct {
-	UserID   int64
-	UserName string
-	FileName string
-	Time     int64
-	Size     int64
-	Action   int
+	UserID   int64  `db:"user_id"`
+	UserName string `db:"user_name"`
+	FileName string `db:"file_name"`
+	Time     int64  `db:"time"`
+	Size     int64  `db:"size"`
+	Action   int    `db:"action"`
 }

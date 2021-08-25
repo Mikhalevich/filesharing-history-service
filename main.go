@@ -88,7 +88,10 @@ func main() {
 	}
 	defer storage.Close()
 
-	history.RegisterHistoryServiceHandler(srv.Server(), NewHistoryService(storage))
+	hs := NewHistoryService(storage)
+
+	micro.RegisterSubscriber("filesharing.file.event", srv.Server(), hs.StoreEvent, server.SubscriberQueue("filesharing.history.service.queue"))
+	history.RegisterHistoryServiceHandler(srv.Server(), hs)
 
 	err = srv.Run()
 	if err != nil {
