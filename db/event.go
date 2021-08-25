@@ -1,10 +1,5 @@
 package db
 
-const (
-	Add = iota + 1
-	Remove
-)
-
 type Event struct {
 	UserID   int64
 	UserName string
